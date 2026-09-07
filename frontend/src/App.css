@@ -1,0 +1,542 @@
+/* ============================================================
+   ROOT & BASE CONFIGURATION
+   ============================================================ */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  background-color: #fcfcfc;
+  color: #212529;
+}
+
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 1.5rem;
+  text-align: left;
+}
+
+/* ============================================================
+   NAVBAR & HEADER
+   ============================================================ */
+.navSection {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #ffffff;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  margin-bottom: 2rem;
+  gap: 1.5rem;
+}
+
+.navSection .title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #2e7d32;
+  white-space: nowrap;
+}
+
+.search {
+  flex: 1;
+  max-width: 450px;
+}
+
+.search input {
+  width: 100%;
+  padding: 0.6rem 1rem;
+  border: 1px solid #ced4da;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.search input:focus {
+  border-color: #2e7d32;
+}
+
+.cart {
+  font-size: 1.05rem;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.text-orange-600 {
+  color: #ea580c;
+  margin-left: 4px;
+}
+
+.userName {
+  font-size: 0.95rem;
+}
+
+.userHighlight {
+  font-weight: 600;
+  color: #2e7d32;
+}
+
+.auth {
+  display: flex;
+  align-items: center;
+}
+
+.loginBtn,
+.logoutBtn {
+  background: #2e7d32;
+  color: #fff;
+  text-decoration: none;
+  border: none;
+  padding: 0.55rem 1.1rem;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  display: inline-block;
+}
+
+.loginBtn:hover,
+.logoutBtn:hover {
+  background: #1b5e20;
+}
+
+/* ============================================================
+   SIDEBAR & SEARCH FILTERS
+   ============================================================ */
+.shopSection {
+  background: #ffffff;
+  padding: 1.25rem;
+  border: 1px solid #e9ecef;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+}
+
+.shopTitle {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #333;
+  border-bottom: 2px solid #e2e8f0;
+  padding-bottom: 0.4rem;
+}
+
+.shopList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.shopList li a {
+  text-decoration: none;
+  color: #495057;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.shopList li a:hover {
+  color: #2e7d32;
+}
+
+.filterBar {
+  background: #fff;
+  padding: 1rem;
+  border: 1px solid #e9ecef;
+  border-radius: 8px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.filterGroup label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #495057;
+  margin-right: 0.4rem;
+}
+
+.filterGroup select {
+  padding: 0.4rem 0.6rem;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  outline: none;
+  font-size: 0.9rem;
+}
+
+/* ============================================================
+   PRODUCT GRID & CARDS
+   ============================================================ */
+.containerSection .itemTitle {
+  font-size: 1.35rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+}
+
+.containerSection .itemTitle span {
+  color: #2e7d32;
+}
+
+.productSection {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+
+.proSection {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  padding: 1rem;
+  background: #fff;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.proSection:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.proSection a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.proImage img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.proName {
+  margin-top: 0.75rem;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #212529;
+}
+
+.proSub {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0.8rem 0;
+}
+
+.proSelect {
+  padding: 0.35rem;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  font-size: 0.85rem;
+}
+
+.proPrice {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #1b5e20;
+}
+
+.proButton {
+  width: 100%;
+  background: #2e7d32;
+  color: #fff;
+  border: none;
+  padding: 0.6rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-weight: 600;
+  transition: background 0.2s ease;
+}
+
+.proButton:hover {
+  background: #1b5e20;
+}
+
+/* ============================================================
+   PRODUCT DETAIL VIEW (DetailComponent)
+   ============================================================ */
+.detailSection {
+  display: flex;
+  gap: 3rem;
+  background: #ffffff;
+  padding: 2rem;
+  border-radius: 8px;
+  border: 1px solid #eee;
+}
+
+.detailSection .imgCont img {
+  border-radius: 8px;
+  border: 1px solid #eee;
+}
+
+.singleDetail {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.singleName {
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
+.singlePrice {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #2e7d32;
+}
+
+.singleDesc {
+  color: #6c757d;
+  line-height: 1.5;
+}
+
+.singleBtn {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.singleCartBtn {
+  background: #2e7d32;
+  color: #fff;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.singleCartBtn:hover {
+  background: #1b5e20;
+}
+
+.singleLaterBtn {
+  background: #f8f9fa;
+  color: #333;
+  border: 1px solid #ccc;
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.singleLaterBtn:hover {
+  background: #e2e8f0;
+}
+
+/* ============================================================
+   CART & INVOICE
+   ============================================================ */
+.cartContainer,
+.invoiceContainer {
+  background: #ffffff;
+  padding: 2rem;
+  border-radius: 8px;
+  border: 1px solid #eee;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.cartTitle,
+.invoiceContainer h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  border-bottom: 2px solid #f1f3f5;
+  padding-bottom: 0.5rem;
+}
+
+.cartItem,
+.invoiceItem {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid #eee;
+}
+
+.subCart,
+.invoiceDetails {
+  flex: 1;
+}
+
+.subCart h4,
+.invoiceDetails h4 {
+  font-size: 1.1rem;
+  margin-bottom: 0.25rem;
+}
+
+.cartDelete {
+  background: #d32f2f;
+  color: #fff;
+  border: none;
+  padding: 0.45rem 0.9rem;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 0.5rem;
+  transition: background 0.2s ease;
+}
+
+.cartDelete:hover {
+  background: #b71c1c;
+}
+
+.invoiceSummary {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-size: 1.05rem;
+}
+
+.invoiceSummary p {
+  display: flex;
+  justify-content: space-between;
+  color: #495057;
+}
+
+.invoiceSummary h3 {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.5rem;
+  font-size: 1.25rem;
+  color: #1b5e20;
+}
+
+.checkoutBox {
+  margin-top: 2rem;
+  text-align: right;
+}
+
+.checkoutBtn {
+  background: #2e7d32;
+  color: #fff;
+  border: none;
+  padding: 0.8rem 2rem;
+  border-radius: 6px;
+  font-size: 1.05rem;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-block;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.checkoutBtn:hover {
+  background: #1b5e20;
+}
+
+.cartEmpty {
+  text-align: center;
+  padding: 3rem;
+  font-size: 1.25rem;
+  color: #888;
+}
+
+/* ============================================================
+   FORMS (AddProduct, SendOtp, OtpVerify)
+   ============================================================ */
+.form-container,
+.emailSection {
+  max-width: 480px;
+  margin: 2rem auto;
+  background: #ffffff;
+  padding: 2rem;
+  border-radius: 8px;
+  border: 1px solid #eee;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.addTitle,
+.emailHeading {
+  font-size: 1.35rem;
+  font-weight: 700;
+  margin-bottom: 1.25rem;
+  color: #2e7d32;
+}
+
+.formSection h3,
+.emailForm h3 {
+  font-size: 0.9rem;
+  color: #495057;
+  margin: 0.8rem 0 0.3rem 0;
+  text-align: left;
+}
+
+.formSection input[type="text"],
+.formSection input[type="number"],
+.formSection select,
+.emailForm input[type="text"],
+.emailForm input[type="email"] {
+  width: 100%;
+  padding: 0.6rem;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  outline: none;
+}
+
+.formSection button[type="submit"],
+.emailForm button[type="submit"] {
+  width: 100%;
+  background: #2e7d32;
+  color: #fff;
+  border: none;
+  padding: 0.75rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 6px;
+  margin-top: 1.25rem;
+  cursor: pointer;
+}
+
+.formSection button[type="submit"]:hover,
+.emailForm button[type="submit"]:hover {
+  background: #1b5e20;
+}
+
+/* ============================================================
+   ANIMATIONS & MISC
+   ============================================================ */
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}

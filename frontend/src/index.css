@@ -1,0 +1,573 @@
+@import "tailwindcss";
+
+/* ============================================================
+   GLOBAL & RESET
+   ============================================================ */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  background-color: #fcfcfc;
+  color: #1a1a1a;
+}
+
+/* ============================================================
+   NAVBAR
+   ============================================================ */
+.navSection {
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  display: flex;
+  height: 80px;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 40px;
+  background: #ffffff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #15803d;
+}
+
+.search input {
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  height: 2.4rem;
+  width: 320px;
+  padding: 0 12px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.search input:focus {
+  border-color: #16a34a;
+}
+
+.cart {
+  font-size: 1.15rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.userName {
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.userHighlight {
+  color: #16a34a;
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-left: 4px;
+}
+
+/* ============================================================
+   SIDEBAR & SEARCH FILTER
+   ============================================================ */
+.shopSection {
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 20px 15px;
+  background-color: #f8fafc;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+.shopTitle {
+  font-size: 1.15rem;
+  font-weight: 700;
+  border-bottom: 2px solid #16a34a;
+  padding-bottom: 8px;
+  text-align: center;
+  color: #1e293b;
+}
+
+.shopSection ul {
+  list-style: none;
+  padding: 0;
+  margin: 15px 0 0 0;
+}
+
+.shopSection ul li {
+  margin: 14px 0;
+  cursor: pointer;
+  text-align: center;
+}
+
+.shopSection ul li a {
+  text-decoration: none;
+  color: #334155;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.shopSection ul li a:hover {
+  color: #16a34a;
+}
+
+.filterBar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  font-size: 0.95rem;
+  background-color: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 10px 20px;
+  margin-bottom: 25px;
+}
+
+.filterBar select {
+  padding: 4px 8px;
+  border-radius: 4px;
+  border: 1px solid #cbd5e1;
+}
+
+/* ============================================================
+   PRODUCT GRID & CARDS
+   ============================================================ */
+.containerSection {
+  width: 100%;
+  text-align: center;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.itemTitle {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.itemTitle span {
+  color: #ea580c;
+  font-weight: 700;
+}
+
+.productSection {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 24px;
+  width: 100%;
+  padding: 0;
+  margin-top: 10px;
+}
+
+.proSection {
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 16px;
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.proSection:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
+}
+
+.proImage img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.proName {
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin-top: 10px;
+  color: #1e293b;
+  min-height: 48px;
+  text-align: left;
+}
+
+.proSub {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.proSelect {
+  padding: 4px 6px;
+  border: 1px solid #cbd5e1;
+  border-radius: 4px;
+  font-size: 0.9rem;
+}
+
+.proPrice {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #15803d;
+}
+
+.proButton {
+  width: 100%;
+  margin-top: 8px;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 6px;
+  background-color: #16a34a;
+  color: #ffffff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.proButton:hover {
+  background-color: #15803d;
+}
+
+/* ============================================================
+   PRODUCT DETAIL (DetailComponent)
+   ============================================================ */
+.detailSection {
+  display: flex;
+  gap: 40px;
+  min-height: 70vh;
+  padding: 40px 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.imgCont {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+}
+
+.singleImage {
+  width: 100%;
+  max-width: 380px;
+  height: 380px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.singleDetail {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 10px;
+}
+
+.singleName {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 10px;
+}
+
+.singlePrice {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #15803d;
+  margin-bottom: 15px;
+}
+
+.singleDesc {
+  color: #64748b;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.singleBtn {
+  display: flex;
+  gap: 15px;
+}
+
+.singleCartBtn,
+.singleLaterBtn {
+  border: none;
+  border-radius: 6px;
+  padding: 12px 24px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.singleCartBtn {
+  background-color: #16a34a;
+  color: #ffffff;
+}
+
+.singleLaterBtn {
+  background-color: #f97316;
+  color: #ffffff;
+}
+
+.singleCartBtn:hover,
+.singleLaterBtn:hover {
+  opacity: 0.9;
+}
+
+/* ============================================================
+   CART & INVOICE
+   ============================================================ */
+.cartContainer {
+  width: 100%;
+  max-width: 800px;
+  margin: 30px auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.cartTitle {
+  color: #15803d;
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.cartEmpty {
+  color: #dc2626;
+  font-size: 1.25rem;
+  font-weight: 600;
+  text-align: center;
+  margin-top: 50px;
+}
+
+.cartItem {
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  background: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 16px 24px;
+  margin-bottom: 12px;
+}
+
+.subCart {
+  display: flex;
+  gap: 25px;
+  align-items: center;
+}
+
+.cartDelete {
+  border: none;
+  border-radius: 4px;
+  background-color: #ef4444;
+  padding: 8px 16px;
+  color: #ffffff;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.2s;
+}
+
+.cartDelete:hover {
+  background-color: #dc2626;
+}
+
+.invoiceContainer {
+  max-width: 700px;
+  margin: 40px auto;
+  padding: 30px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+}
+
+.invoiceContainer h2 {
+  text-align: center;
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 25px;
+}
+
+.invoiceItem {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.invoiceItem img {
+  width: 70px;
+  height: 70px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.invoiceDetails {
+  flex: 1;
+}
+
+.invoiceDetails h4 {
+  margin: 0 0 4px;
+  font-size: 1.05rem;
+}
+
+.invoiceDetails p {
+  margin: 0;
+  color: #64748b;
+}
+
+.invoiceDetails strong {
+  display: block;
+  margin-top: 4px;
+  color: #0f172a;
+}
+
+.invoiceSummary {
+  margin-top: 25px;
+}
+
+.invoiceSummary p {
+  display: flex;
+  justify-content: space-between;
+  margin: 8px 0;
+  font-size: 1rem;
+  color: #334155;
+}
+
+.invoiceSummary h3 {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+  padding-top: 12px;
+  border-top: 2px solid #0f172a;
+  font-size: 1.25rem;
+}
+
+.checkoutBtn {
+  width: 100%;
+  margin-top: 20px;
+  padding: 12px 20px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  background-color: #16a34a;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.checkoutBtn:hover {
+  background-color: #15803d;
+}
+
+/* ============================================================
+   FORMS (AddProduct, SendOtp, OtpVerify)
+   ============================================================ */
+.form-container,
+.emailSection {
+  max-width: 500px;
+  margin: 40px auto;
+  padding: 30px;
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+}
+
+.addTitle,
+.emailHeading {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #15803d;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.verify {
+  color: #2563eb;
+}
+
+.formSection,
+.emailForm {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.formSection input,
+.formSection select,
+.emailForm input {
+  width: 100%;
+  height: 2.6rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  padding: 0 12px;
+  margin-bottom: 15px;
+  outline: none;
+  font-size: 0.95rem;
+}
+
+.formSection input:focus,
+.formSection select:focus,
+.emailForm input:focus {
+  border-color: #16a34a;
+}
+
+.formSection h3,
+.emailForm h3 {
+  width: 100%;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #475569;
+  margin: 0 0 6px 0;
+  text-align: left;
+}
+
+.itemCard {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 12px;
+}
+
+.formSection button,
+.emailForm button {
+  width: 100%;
+  height: 2.8rem;
+  background-color: #16a34a;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-top: 15px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.emailForm button {
+  background-color: #2563eb;
+}
+
+.formSection button:hover {
+  background-color: #15803d;
+}
+
+.emailForm button:hover {
+  background-color: #1d4ed8;
+}
